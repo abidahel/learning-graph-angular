@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { OAuthSettings } from '../oauth';
 import { CalendarComponent } from './calendar/calendar.component';
+import { OnedriveComponent } from './onedrive/onedrive.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     NavBarComponent,
     HomeComponent,
     AlertsComponent,
-    CalendarComponent
+    CalendarComponent,
+    OnedriveComponent
   ],
   // <imports>
   imports: [

@@ -8,6 +8,7 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import { AuthService } from './auth.service';
 import { Event } from './event';
 import { AlertsService } from './alerts.service';
+import { Drive } from './drive';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,18 @@ export class GraphService {
       return result.value;
     } catch (error) {
       this.alertsService.add('Could not get events', JSON.stringify(error, null, 2));
+    }
+  }
+
+  async getOneDrives(): Promise<Drive[]> {
+    try {
+      let result =  await this.graphClient
+        .api('me/drive/root/children')
+        .get();
+
+      return result.value;
+    } catch (error) {
+      this.alertsService.add('Could not get drives', JSON.stringify(error, null, 2));
     }
   }
 }

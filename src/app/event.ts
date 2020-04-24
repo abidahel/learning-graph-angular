@@ -1,3 +1,5 @@
+import { DateTimeTimeZone } from './date-time';
+import { Recipient } from './user'
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
@@ -10,21 +12,3 @@ export class Event {
   start: DateTimeTimeZone;
   end: DateTimeTimeZone;
 }
-
-// https://docs.microsoft.com/graph/api/resources/recipient?view=graph-rest-1.0
-export class Recipient {
-  emailAddress: EmailAddress;
-}
-
-// https://docs.microsoft.com/graph/api/resources/emailaddress?view=graph-rest-1.0
-export class EmailAddress {
-  name: string;
-  address: string;
-}
-
-// https://docs.microsoft.com/graph/api/resources/datetimetimezone?view=graph-rest-1.0
-export class DateTimeTimeZone {
-  dateTime: string;
-  timeZone: string;
-}
-// </eventClasses>
