@@ -1,1 +1,21 @@
-<iframe src="https://mitraisonline-my.sharepoint.com/personal/abidah_e_mitrais_com/_layouts/15/Doc.aspx?sourcedoc={b950ca0b-41a5-4f80-be40-3aebab277732}&amp;action=embedview&amp;wdStartOn=1" width="952px" height="576px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<h1>One Drive</h1>
+<table class="table">
+  <thead>
+    <th scope="col">Name</th>
+    <th scope="col">createdBy</th>
+    <th scope="col">modifiedBy</th>
+    <th scope="col">View</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let drive of drives">
+      <td>{{drive.name}}</td>
+      <td>{{drive.createdBy.user.displayName}}<br/>
+        {{formatDateTimeTimeZone(drive.createdDateTime) | date:'short' }}</td>
+      <td>{{drive.lastModifiedBy.user.displayName}}<br/>
+        {{formatDateTimeTimeZone(drive.lastModifiedDateTime) | date: 'short' }}</td>
+      <td><button class="btn btn-link nav-link border-0" role="button" (click)="viewPage(drive.webUrl)">View</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <iframe src="https://mitraisonline-my.sharepoint.com/personal/abidah_e_mitrais_com/_layouts/15/Doc.aspx?sourcedoc={b950ca0b-41a5-4f80-be40-3aebab277732}&amp;action=embedview&amp;wdStartOn=1" width="952px" height="576px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe> -->

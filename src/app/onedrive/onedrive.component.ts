@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment-timezone';
 
 import { GraphService } from '../graph.service';
 import { AlertsService } from '../alerts.service';
 import { Drive } from '../drive';
+import { DateTimeTimeZone } from '../date-time';
 
 @Component({
   selector: 'app-onedrive',
@@ -25,4 +27,16 @@ export class OnedriveComponent implements OnInit {
       });
   }
 
+  viewPage(url): void {
+    window.open(url, "_blank");
+  }
+
+  formatDateTimeTimeZone(dateTime: DateTimeTimeZone): string {
+    try {
+      return moment.tz(dateTime.dateTime, dateTime.timeZone).format();
+    }
+    catch(error) {
+      this.alertsService.add('DateTimeTimeZone conversion error', JSON.stringify(error));
+    }
+  }
 }
