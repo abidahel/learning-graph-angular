@@ -27,13 +27,13 @@ export class OnedriveComponent implements OnInit {
       });
   }
 
-  viewPage(url): void {
+  viewPage(url: string): void {
     window.open(url, "_blank");
   }
 
-  formatDateTimeTimeZone(dateTime: DateTimeTimeZone): string {
+  formatDateTimeTimeZone(dateTime: string): string {
     try {
-      return moment.tz(dateTime.dateTime, dateTime.timeZone).format();
+      return moment.tz(dateTime, 'UTC').format();
     }
     catch(error) {
       this.alertsService.add('DateTimeTimeZone conversion error', JSON.stringify(error));
